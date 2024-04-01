@@ -2,6 +2,9 @@ package com.vincentdao.result.trace;
 
 import java.util.Objects;
 
+/**
+ * Default implementation of {@link Success}.
+ */
 public final class DefaultSuccess implements Success {
 
     private final String message;

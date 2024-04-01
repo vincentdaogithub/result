@@ -2,6 +2,9 @@ package com.vincentdao.result.trace;
 
 import java.util.Objects;
 
+/**
+ * Default implementation of {@link Failure}.
+ */
 public final class DefaultFailure extends BaseFailure {
 
     private final String message;

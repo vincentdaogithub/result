@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
+/**
+ * Implements the operations for working with {@link Failure}'s own failed reasons.
+ */
 public abstract class BaseFailure implements Failure {
 
     protected final Collection<Failure> reasons;
@@ -30,7 +33,7 @@ public abstract class BaseFailure implements Failure {
         if (Objects.isNull(failures)) {
             throw new NullPointerException("Failure list must be defined.");
         }
-        if (reasons.stream().anyMatch(Objects::isNull)) {
+        if (failures.stream().anyMatch(Objects::isNull)) {
             throw new IllegalArgumentException("Failure list contains null.");
         }
         reasons.addAll(failures);

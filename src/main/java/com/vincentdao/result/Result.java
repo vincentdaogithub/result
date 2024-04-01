@@ -12,12 +12,34 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Result pattern inspired by <a href="https://github.com/altmann/FluentResults">FluentResults</a>.
+ * <p>
+ * This Result pattern is utilized to reduce the reliance on exceptions as a means of controlling code flow (i.e.,
+ * using try-catch blocks).
+ * <p>
+ * The current implementation of {@code Result} includes 3 main operations:
+ * <ul>
+ * <li> Denotes the status of {@code Result} - either successful or failed.
+ * <li> Holds the return value of the operation, if defined. For scenarios with no return value (i.e., when the
+ *      operation returns void), the {@link NoValue} class is used to represent this situation. Attempting to retrieve
+ *      the value from {@code Result<NoValue>} will throw an exception.
+ * <li> Contains the reasons that lead to the {@code Result}'s current status. Can be either {@link Success} or
+ *      {@link Failure}, with customization available for dynamic {@link Reason} representations.
+ * </ul>
+ * <p>
+ * Note: As {@code Result} is primarily used to represent the status of an operation, it should be implemented
+ * on a per-operation basis only. This implies that {@code Result} is NOT thread-safe.
+ *
+ * @param <T> The type of value that {@code Result} holds.
+ */
 public final class Result<T> {
 
     public static final class AbstractSuccessfulResult<T> {
 
         private static final String NULL_VALUE_MESSAGE = "Value must be defined. Consider using Result<NoValue> and" +
                 " method withNoValue() instead.";
+
         private AbstractSuccessfulResult() {
         }
 
