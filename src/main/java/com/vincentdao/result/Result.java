@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
  *      {@link Failure}, with customization available for dynamic {@link Reason} representations.
  * </ul>
  * <p>
+ * Special case: Adding a {@link Failure} as a reason to a successful {@code Result} converts it into a failed one.
+ * <p>
  * Note: As {@code Result} is primarily used to represent the status of an operation, it should be implemented
  * on a per-operation basis only. This implies that {@code Result} is NOT thread-safe.
  *
