@@ -169,4 +169,4 @@ They should be handled accordingly to avoid concurrency issues.
 
 ## License
 
-This project is licensed under MIT License.
+This project is licensed under [MIT License](LICENSE).
